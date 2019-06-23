@@ -16,12 +16,12 @@ class App extends Component {
           <Banner />
         </div>
         <div className="mainContent">
-          <section>
+          {/* <section>
             <LeftBanner />
           </section>
           <main>
             <Details />
-          </main>
+          </main> */}
         </div>
       </div> )
     );

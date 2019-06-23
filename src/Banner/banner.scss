@@ -1,38 +1,47 @@
-
-@import url('https://fonts.googleapis.com/css?family=Libre+Barcode+39+Text');
 $banner-backgroud-color: #00000036;
 $banner-header-color: #01170f;
-$banner-header-font: 'Libre Barcode 39 Text', cursive;
-header {
-    width: 100vw;
-    height: 18vh;
-    box-sizing: border-box;
-    margin: 0px;
-    display: flex;
-    flex-direction: column;
-}
 
-header .heading{
-  color: $banner-header-color;
+.banner {
+  box-sizing: border-box;
+  margin: 0px;
   display: flex;
-  justify-content: center;
-  width: 100%;
-  flex-direction: column;
-  font-family: $banner-header-font;
-  height: 75%;
-  h1 {
-    font-weight: 100;
-    font-size: 4em;
+  border: 1px;
+  border-style: groove;
+  padding: 0 2%;
+  justify-content: space-between;
+
+  &-left {
+    width: 50%;
   }
-}
 
-header .icons {
-  height: 25%;
-  display: flex;
-  justify-content: space-around;
-  div {
+  &-heading {
+    color: $banner-header-color;
+
+    h1 {
+      margin: 20px 0px 0px;
+      font-weight: 100;
+      font-size: 4em;
+    }
+  }
+
+  &-icons {
+    height: 25%;
     display: flex;
-    justify-content: space-between;
-    width: 20%;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      padding: 0px;
+      width: 50%;
+    }
+  }
+
+  &-image img {
+    width: 120px;
+    border-radius: 50%;
+    top: 17%;
+    position: absolute;
+    left: 83%;
   }
 }

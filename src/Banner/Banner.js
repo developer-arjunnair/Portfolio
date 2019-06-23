@@ -1,42 +1,49 @@
-import React, { Component } from 'react';
-import './banner.scss';
-import posed from "react-pose";
-import { faEnvelope, faMobileAlt } from '@fortawesome/free-solid-svg-icons'
-import { faGitSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import IconHref from '../SharedComponents/IconHref/IconHref'
+import React, { Component } from "react";
+import "./banner.scss";
+import {
+  faEnvelope,
+  faMobileAlt,
+  faAddressCard
+} from "@fortawesome/free-solid-svg-icons";
+import IconHref from "../SharedComponents/IconHref/IconHref";
+import proPic from "../ProPic.jpg";
 class Banner extends Component {
-
-  get Icons() {
-    return posed.div();
-  }
-
   get iconList() {
     return [
-      { text:'Git repo' , icon:faGitSquare, url:'https://github.com/a3qube' ,},
-      { text:'LinkedIn' , icon:faLinkedin, url:'https://www.linkedin.com/in/arjun-a-nair-74194536',},
-      { text:'eMail' , icon:faEnvelope, url:'mailto:arjun.nair89@outlook.com' ,},
-      { text:'Mobile' , icon:faMobileAlt, url:'tel:+1-669-241-9274'},
+      {
+        text: "135 Quincy Ave",
+        icon: faAddressCard,
+        url: "https://maps.google.com"
+      },
+      {
+        text: "arjun.nair89@outlook.com",
+        icon: faEnvelope,
+        url: "mailto:arjun.nair89@outlook.com"
+      },
+      { text: "+1-669-241-9274", icon: faMobileAlt, url: "tel:+1-669-241-9274" }
     ];
   }
 
   render() {
-    const { Icons, iconList } = this;
+    const { iconList } = this;
     return (
-      <header>
-        <div className="heading">
-          <h1> Arjun Nair </h1>
+      <header className="banner">
+        <div className="banner-left">
+          <div className="banner-heading">
+            <h1> Arjun Nair </h1>
+          </div>
+          <div className="banner-icons">
+            <ul>
+              {iconList.map(ic => (
+                <IconHref {...ic} />
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="icons">
-          <Icons>
-            { iconList.map( ic =>
-              <IconHref url={ic.url} icon={ic.icon}/>
-            )}
-          </Icons>
+        <div className="banner-image">
+          <img src={proPic} alt="profile" />
         </div>
-
-
       </header>
-
     );
   }
 }
