@@ -11,21 +11,34 @@ class Banner extends Component {
   get iconList() {
     return [
       {
+        id: 1,
         text: "135 Quincy Ave",
         icon: faAddressCard,
-        url: "https://maps.google.com"
+        url: "https://maps.google.com",
+        showOnMobile: false
       },
       {
+        id: 2,
         text: "arjun.nair89@outlook.com",
         icon: faEnvelope,
-        url: "mailto:arjun.nair89@outlook.com"
+        url: "mailto:arjun.nair89@outlook.com",
+        showOnMobile: true
       },
-      { text: "+1-669-241-9274", icon: faMobileAlt, url: "tel:+1-669-241-9274" }
+      {
+        id: 3,
+        text: "6692419274",
+        icon: faMobileAlt,
+        url: "tel:+1-669-241-9274",
+        showOnMobile: true
+      }
     ];
   }
 
   render() {
-    const { iconList } = this;
+    const {
+      iconList,
+      props: { isMobile }
+    } = this;
     return (
       <header className="banner">
         <div className="banner-left">
@@ -35,7 +48,7 @@ class Banner extends Component {
           <div className="banner-icons">
             <ul>
               {iconList.map(ic => (
-                <IconHref {...ic} />
+                <IconHref key={ic.id} {...ic} isMobile={isMobile} />
               ))}
             </ul>
           </div>

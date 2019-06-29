@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
-import './app.scss';
-import deviceCheck from '../utils/deviceCheck'
-import Banner from '../Banner/Banner';
-import LeftBanner from '../LeftBanner/LeftBanner';
+import React, { Component } from "react";
+import "./app.scss";
+import deviceCheck from "../utils/deviceCheck";
+import Banner from "../Banner/Banner";
+import LeftBanner from "../LeftBanner/LeftBanner";
 import Details from "../Details/Details";
-import MobileDeviceSupportError from '../ErrorPages/MobileDeviceSupportError'
+import MobileDeviceSupportError from "../ErrorPages/MobileDeviceSupportError";
 class App extends Component {
-
   render() {
+    // return (
+    //   deviceCheck.any() ? <MobileDeviceSupportError /> :
     return (
-      deviceCheck.any() ? <MobileDeviceSupportError /> :
-      (
       <div className="App">
         <div className="app_banner">
-          <Banner />
+          <Banner isMobile={!!deviceCheck.any()} />
         </div>
         <div className="mainContent">
           {/* <section>
@@ -23,8 +22,9 @@ class App extends Component {
             <Details />
           </main> */}
         </div>
-      </div> )
+      </div>
     );
+    // );
   }
 }
 
