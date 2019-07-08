@@ -4,7 +4,6 @@ import deviceCheck from "../utils/deviceCheck";
 import Banner from "../Banner/Banner";
 import LeftBanner from "../LeftBanner/LeftBanner";
 import Details from "../Details/Details";
-import MobileDeviceSupportError from "../ErrorPages/MobileDeviceSupportError";
 class App extends Component {
   render() {
     // return (
