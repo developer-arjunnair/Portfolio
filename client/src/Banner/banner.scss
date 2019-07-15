@@ -27,6 +27,7 @@ $bg-img: url("ProPic.jpg");
   display: grid;
   @media only screen and (max-width: $bp--medium) {
     grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
     text-align: center;
     height: 220px;
   }
@@ -57,13 +58,14 @@ $bg-img: url("ProPic.jpg");
   }
 
   &-image {
+    position: relative;
     img {
       @media only screen and (max-width: $bp--medium) {
-        top: 21%;
-        left: 34%;
+        top: 69%;
+        left: 34.5%;
       }
       @media only screen and (min-width: $bp--large) {
-        top: 17%;
+        top: 65%;
         left: 83%;
         border: 1px;
         border-style: groove;
