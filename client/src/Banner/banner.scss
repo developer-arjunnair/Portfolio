@@ -10,12 +10,12 @@ $bp--large: 1024px;
     @media only screen and (max-width: $bp--small) {
       @content;
     }
-  } @else if $media==$bp--768 {
+  } @else if $media==$bp--medium {
     @media only screen and (min-width: $bp--small + 1) and (max-width: $bp--medium - 1) {
       @content;
     }
   } @else if $media==$bp--large {
-    @media only screen and (min-width: $bp--medium) {
+    @media only screen and (min-width: $bp--large) {
       @content;
     }
   }
@@ -24,63 +24,54 @@ $bp--large: 1024px;
 $bg-img: url("ProPic.jpg");
 
 .banner {
-  box-sizing: border-box;
-  margin: 0px;
-  display: flex;
-  border: 1px;
-  border-color: #7db37d;
-  border-style: groove;
-  padding: 0 2%;
-  justify-content: space-between;
-
-  &-left {
-    width: 50%;
+  display: grid;
+  @media only screen and (max-width: $bp--medium) {
+    grid-template-columns: 100%;
+    text-align: center;
+    height: 220px;
+  }
+  @media only screen and (min-width: $bp--large) {
+    grid-template-columns: 25% 75%;
   }
 
-  &-heading {
-    color: $banner-header-color;
+  border-style: groove;
+  box-sizing: border-box;
 
-    h1 {
-      margin: 20px 0px 0px;
-      font-weight: 100;
-      font-size: 4em;
-    }
+  h1 {
+    margin: 20px 20px 0px;
+    font-weight: 100;
+    font-size: 4em;
   }
 
   &-icons {
-    height: 25%;
-    display: flex;
-
     ul {
-      display: flex;
-      flex-direction: column;
       list-style: none;
       padding: 0px;
-      width: 50%;
+    }
+    @media only screen and (max-width: $bp--medium) {
+      text-align: center;
+    }
+    @media only screen and (min-width: $bp--large) {
+      margin-left: 20px;
     }
   }
 
   &-image {
     img {
+      @media only screen and (max-width: $bp--medium) {
+        top: 21%;
+        left: 34%;
+      }
+      @media only screen and (min-width: $bp--large) {
+        top: 17%;
+        left: 83%;
+        border: 1px;
+        border-style: groove;
+        border-color: #425e42;
+      }
       width: 120px;
       border-radius: 50%;
-      top: 17%;
       position: absolute;
-      left: 83%;
-      border: 1px;
-      border-style: groove;
-      border-color: #425e42;
     }
   }
 }
-
-// margin: 20px 0px 0px;
-//     font-weight: 120;
-//     font-size: 2em;
-
-// margin: 20px 0px 0px;
-// font-weight: 100;
-// font-size: 2em;
-
-/*
-namefont-size: 3em;*/
