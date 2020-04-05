@@ -1,14 +1,18 @@
 @import "../../App/app.scss";
-@import "../../Banner/banner.scss";
+@import '~bootstrap/scss/bootstrap.scss';
+
+
 .iconHref {
   color: inherit;
   text-decoration: none;
   display: flex;
   font-family: $Font-Header-Subtitle;
   padding: 0px;
-  @include respond-to($bp--medium) {
-    text-align: center;
-  }
+
+  // @include media-breakpoint-up(sm) {
+  //   text-align: center;
+  // }
+
   &-icon {
     margin-right: 12px;
     width: 15px;

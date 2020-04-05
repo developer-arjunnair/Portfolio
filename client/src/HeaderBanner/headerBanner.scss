@@ -1,0 +1,22 @@
+.headerBanner {
+  display: flex;
+  flex-direction: column;
+  height: 25%;
+  width: 100%;
+
+  &-light {
+    background-color: #d5e8d4;
+  }
+
+  &-details {
+    height: 70%;
+    border-radius: 20px;
+    padding: 4%;
+    box-shadow: 2px 2px 4px 0px #323e379c;
+  }
+
+  &-dpConatiner {
+    position: relative;
+    height: 30%;
+  }
+}

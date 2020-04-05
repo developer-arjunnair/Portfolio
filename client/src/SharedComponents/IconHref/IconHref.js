@@ -1,5 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon, IconProp } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 import "./iconHref.scss";
 
 const displayElement = (showOnMobile, isMobile) => {
@@ -9,17 +10,32 @@ const displayElement = (showOnMobile, isMobile) => {
   return true;
 };
 
-export default function IconHref({ icon, url, text, showOnMobile, isMobile }) {
+const IconHref = ({ icon, url, text, showOnMobile, isMobile }) => {
   return displayElement(showOnMobile, isMobile) ? (
     <li>
       <a href={url} className="iconHref">
-        {!isMobile && (
-          <div className="iconHref-icon">
-            <FontAwesomeIcon icon={icon} pull="left" size="1x" />
-          </div>
-        )}
-        <div className="iconHref-text">{text}</div>
+        <div className="iconHref-icon">
+          <FontAwesomeIcon icon={icon} pull="left" size="lg" />
+        </div>
+        {text && <div className="iconHref-text">{text}</div>}
       </a>
     </li>
   ) : null;
-}
+};
+
+IconHref.propTypes = {
+  icon: PropTypes.object.isRequired,
+  url: PropTypes.string,
+  text: PropTypes.string,
+  showOnMobile: PropTypes.bool,
+  isMobile: PropTypes.bool
+};
+
+IconHref.defaultProps = {
+  url: "#",
+  text: "",
+  showOnMobile: false,
+  isMobile: false
+};
+
+export default IconHref;
