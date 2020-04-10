@@ -1,0 +1,23 @@
+.experience {
+  height: 100%;
+  padding: 0px 10px;
+
+  &-header {
+    border-style: solid;
+    border-color: tomato;
+    display: flex;
+
+    height: 10%;
+
+    &--company {
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+
+  &-details {
+    height: 90%;
+    border-style: solid;
+    border-color: turquoise;
+  }
+}

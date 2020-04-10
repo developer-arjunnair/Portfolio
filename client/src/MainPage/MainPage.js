@@ -1,14 +1,24 @@
 import React from "react";
-import GridLayout from "../Components Library/GridLayout";
+import GridLayout from "../Components Library/Grid/GridLayout";
 import HeaderBanner from "../HeaderBanner/HeaderBanner";
+import TimeLine from "../Timeline/Timeline";
+import Experience from "../Experience/Experience";
+
 import "./MainPage.scss";
 const MainPage = () => {
   return (
-    <main>
-      <GridLayout>
+    <GridLayout className="mainParent">
+      <header>
         <HeaderBanner />
-      </GridLayout>
-    </main>
+      </header>
+      <section>
+        <TimeLine />
+      </section>
+      <main>
+        <Experience />
+      </main>
+      <footer></footer>
+    </GridLayout>
   );
 };
 

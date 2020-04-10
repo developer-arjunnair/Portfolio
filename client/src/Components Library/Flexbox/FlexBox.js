@@ -5,7 +5,7 @@ import "./flexBox.scss";
 
 export const FlexBoxValueHelper = {
   DIRECTION_ROW: "row",
-  DIRECTION_COLUMN: "column"
+  DIRECTION_COLUMN: "column",
 };
 
 const FlexBox = ({ children, direction, className }) => {
@@ -23,16 +23,18 @@ const FlexBox = ({ children, direction, className }) => {
 FlexBox.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
-    PropTypes.element
+    PropTypes.element,
   ]).isRequired,
   direction: PropTypes.oneOf([
     FlexBoxValueHelper.DIRECTION_ROW,
-    FlexBoxValueHelper.DIRECTION_COLUMN
-  ])
+    FlexBoxValueHelper.DIRECTION_COLUMN,
+  ]),
+  className: PropTypes.string,
 };
 
 FlexBox.defaultProps = {
-  direction: FlexBoxValueHelper.DIRECTION_COLUMN
+  direction: FlexBoxValueHelper.DIRECTION_COLUMN,
+  className: "",
 };
 
 export default FlexBox;

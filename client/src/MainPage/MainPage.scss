@@ -1,8 +1,41 @@
-main {
+.mainParent {
+
   margin: 1% auto;
   width: 94%;
   height: 100%;
   background-color: #F7F7F7;
   padding: 10px;
   border-radius: 15px;
+
+  header {
+    grid-area: header;
+    grid-area: 1 /1/ 1 / 12;
+    border-style: solid;
+  }
+
+  section {
+    grid-area: sideBar;
+    grid-area: 2 /1/ 12/ 2;
+
+    border-color: blue;
+    border-style: solid;
+  }
+
+  main {
+    grid-area: experience;
+    grid-area: 2 /2/ 11/ 12;
+    // display: flex;
+    // flex-direction: column;
+    border-color: yellow;
+    border-style: solid;
+  }
+
+  footer {
+    grid-area: footer;
+    grid-area: 11 /2/ 12/ 12;
+    border-style: solid;
+
+    border-color: green;
+    border-style: solid;
+  }
 }
