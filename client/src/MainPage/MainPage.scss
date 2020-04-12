@@ -1,5 +1,4 @@
 .mainParent {
-
   margin: 1% auto;
   width: 94%;
   height: 100%;
@@ -7,35 +6,45 @@
   padding: 10px;
   border-radius: 15px;
 
+  @media (min-width: 768px) {
+    grid-template-columns: minmax(0, 1fr) 6fr;
+    grid-template-areas: "header header"
+      "sideBar main"
+      "sideBar footer";
+    grid-template-rows: minmax(200px, 2fr) minmax(50ch, 100ch) minmax(150px, 1fr);
+  }
+
+  grid-template-areas: "header "
+  "main"
+  " footer";
+
   header {
+    // border: 1px solid red;
     grid-area: header;
-    grid-area: 1 /1/ 1 / 12;
-    border-style: solid;
+    min-height: 200px;
   }
 
   section {
+    // border: 1px solid blue;
+    display: none;
     grid-area: sideBar;
-    grid-area: 2 /1/ 12/ 2;
 
-    border-color: blue;
-    border-style: solid;
+    @media (min-width: 768px) {
+      display: inherit;
+    }
   }
 
   main {
-    grid-area: experience;
-    grid-area: 2 /2/ 11/ 12;
-    // display: flex;
-    // flex-direction: column;
-    border-color: yellow;
-    border-style: solid;
+    // border: 1px solid rgb(0, 47, 255);
+    grid-area: main;
   }
 
   footer {
+    // border: 1px solid green;
     grid-area: footer;
-    grid-area: 11 /2/ 12/ 12;
-    border-style: solid;
-
-    border-color: green;
-    border-style: solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
   }
 }

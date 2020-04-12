@@ -21,10 +21,7 @@ const FlexBox = ({ children, direction, className }) => {
 };
 
 FlexBox.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.element),
-    PropTypes.element,
-  ]).isRequired,
+  children: React.Children.isRequired,
   direction: PropTypes.oneOf([
     FlexBoxValueHelper.DIRECTION_ROW,
     FlexBoxValueHelper.DIRECTION_COLUMN,

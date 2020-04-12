@@ -1,8 +1,9 @@
 import React from "react";
 import GridLayout from "../Components Library/Grid/GridLayout";
 import HeaderBanner from "../HeaderBanner/HeaderBanner";
-import TimeLine from "../Timeline/Timeline";
+import TimeLine, { companies } from "../Timeline/Timeline";
 import Experience from "../Experience/Experience";
+import SkillsCapsule from "../SkillsCapsule/SkillsCapsule";
 
 import "./MainPage.scss";
 const MainPage = () => {
@@ -12,12 +13,14 @@ const MainPage = () => {
         <HeaderBanner />
       </header>
       <section>
-        <TimeLine />
+        <TimeLine nextCompany={companies.Expedia} />
       </section>
       <main>
         <Experience />
       </main>
-      <footer></footer>
+      <footer>
+        <SkillsCapsule />
+      </footer>
     </GridLayout>
   );
 };

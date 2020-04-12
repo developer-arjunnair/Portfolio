@@ -5,7 +5,9 @@
   height: 100%;
   padding: 10% 0;
 
-
+  &-logo{
+    opacity: 0.4;
+  }
   &-connector {
     &--primary {
       flex-grow: 50
