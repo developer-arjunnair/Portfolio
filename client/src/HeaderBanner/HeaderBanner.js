@@ -2,26 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 import HorizontalList from "../Components Library/HorizontalList/HorizontalList";
 import FlexBox, {
-  FlexBoxValueHelper
+  FlexBoxValueHelper,
 } from "../Components Library/Flexbox/FlexBox";
 import IconHref from "../SharedComponents/IconHref/IconHref";
 import ProfilePicture from "../ProfilePicutre/ProfilePicutre";
 import { faLinkedin, faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { urls } from "../utils/constants";
+import styled from "styled-components";
+
 //Styles
 import "./headerBanner.scss";
+import PillToggle from "../Components Library/PillToggle";
 
-const HeaderBanner = ({ isMobile }) => {
+const HeaderBanner = ({ isMobile, handleToggleTheme }) => {
   return (
-    <FlexBox
-      className="headerBanner"
-      direction={FlexBoxValueHelper.DIRECTION_COLUMN}
-    >
-      <FlexBox
-        className="headerBanner-details headerBanner-light"
-        direction={FlexBoxValueHelper.DIRECTION_COLUMN}
-      >
+    <FlexBox className="headerBanner">
+      <HeaderWithBgColor className="headerBanner-details">
         <h1>Arjun Nair</h1>
         <div>
           <HorizontalList>
@@ -30,7 +27,8 @@ const HeaderBanner = ({ isMobile }) => {
             <IconHref icon={faLinkedin} url={urls.linkedIn} />
           </HorizontalList>
         </div>
-      </FlexBox>
+        <PillToggle handleToggle={handleToggleTheme} />
+      </HeaderWithBgColor>
       <div className="headerBanner-dpConatiner">
         <ProfilePicture shift_left={80} shift_top={0} size={150} />
       </div>
@@ -38,12 +36,17 @@ const HeaderBanner = ({ isMobile }) => {
   );
 };
 
+const HeaderWithBgColor = styled(FlexBox)`
+  background-color: ${({ theme }) => theme.colors.header.bgColor};
+  color: ${({ theme }) => theme.colors.header.font};
+`;
+
 HeaderBanner.propTypes = {
-  isMobile: PropTypes.bool
+  isMobile: PropTypes.bool,
 };
 
 HeaderBanner.defaultProps = {
-  isMobile: false
+  isMobile: false,
 };
 
 export default HeaderBanner;

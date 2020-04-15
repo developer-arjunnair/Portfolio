@@ -1,24 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import "./flexBox.scss";
+import styled from "styled-components";
 
 export const FlexBoxValueHelper = {
   DIRECTION_ROW: "row",
   DIRECTION_COLUMN: "column",
 };
 
-const FlexBox = ({ children, direction, className }) => {
-  return (
-    <div
-      className={`${className} flexBox flexBox${
-        direction === FlexBoxValueHelper.DIRECTION_ROW ? "-row" : "-column"
-      }`}
-    >
-      {children}
-    </div>
-  );
+const FlexBox = ({ children, ...otherProps }) => {
+  return <StyledFlexBox {...otherProps}>{children}</StyledFlexBox>;
 };
+
+const StyledFlexBox = styled.div`
+  display: flex;
+  flex-direction: ${({ direction }) => direction};
+`;
 
 FlexBox.propTypes = {
   children: React.Children.isRequired,

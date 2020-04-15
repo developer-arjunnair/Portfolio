@@ -6,6 +6,7 @@ import Circle from "../Components Library/Circle/Circle";
 import ExpediaLogo from "../resources/Expedia round.png";
 import WayfairLogo from "../resources/wayfair-logo.png";
 import WiproLogo from "../resources/ProPic.jpg";
+import styled from "styled-components";
 
 import "./timeline.scss";
 
@@ -18,12 +19,10 @@ export const companies = Object.keys(logoList).reduce((acc, companyName) => {
   acc[companyName] = companyName;
   return acc;
 }, {});
+
 const TimeLine = ({ className, nextCompany, previousCompany }) => {
-  console.log("------------------------------------");
-  console.log(companies);
-  console.log("------------------------------------");
   return (
-    <div className={`timeLine ${className}`}>
+    <TimeLineStyled>
       {previousCompany && (
         <React.Fragment>
           <Circle size={106}>
@@ -54,9 +53,18 @@ const TimeLine = ({ className, nextCompany, previousCompany }) => {
           <Line className="timeLine-connector--secondary" />{" "}
         </React.Fragment>
       )}
-    </div>
+    </TimeLineStyled>
   );
 };
+
+const TimeLineStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 10% 0;
+  color: ${({ theme }) => theme.colors.lineColor};
+`;
 
 TimeLine.prototype = {
   className: PropTypes.string,

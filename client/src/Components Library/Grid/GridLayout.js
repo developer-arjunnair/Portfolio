@@ -1,13 +1,10 @@
-import React from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 
-const GridLayout = ({ children, className }) => {
-  return (
-    <div style={{ display: "grid", height: "100%" }} className={className}>
-      {children}
-    </div>
-  );
-};
+const GridLayout = styled.div`
+  display: grid;
+  height: 100%;
+`;
 
 GridLayout.propTypes = {
   children: PropTypes.element.isRequired,

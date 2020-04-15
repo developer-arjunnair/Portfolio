@@ -6,6 +6,7 @@ import Line from "../Components Library/Line/Line";
 import wayfairLongLogo from "../resources/wayfair-logo-long.png";
 import "./experience.scss";
 import ExperienceCapsule from "../ExprienceCapsule/ExperienceCapsule";
+import styled from "styled-components";
 
 const experienceDetails = [
   {
@@ -94,10 +95,7 @@ const Experience = () => {
   return (
     <FlexBox className="experience">
       <FlexBox className="experience-header">
-        <FlexBox
-          className="experience-header--company"
-          direction={FlexBoxValueHelper.DIRECTION_ROW}
-        >
+        <ExperienceContainerStyled direction={FlexBoxValueHelper.DIRECTION_ROW}>
           <h2>Wayfair</h2>
           <img
             src={wayfairLongLogo}
@@ -105,16 +103,22 @@ const Experience = () => {
             width="75px"
             height="75px"
           ></img>
-        </FlexBox>
+        </ExperienceContainerStyled>
         <Line isHorizontal />
       </FlexBox>
       <FlexBox className="experience-details">
-        {experienceDetails.map(({ role, achievements }) => (
+        {experienceDetailsSmall.map(({ role, achievements }) => (
           <ExperienceCapsule role={role} achievements={achievements} />
         ))}
       </FlexBox>
     </FlexBox>
   );
 };
+
+const ExperienceContainerStyled = styled(FlexBox)`
+  justify-content: space-between;
+  align-items: flex-end;
+  color: ${({ theme }) => theme.colors.experience.titleFont};
+`;
 
 export default Experience;

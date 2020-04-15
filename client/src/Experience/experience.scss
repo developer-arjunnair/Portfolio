@@ -5,13 +5,8 @@
   &-header {
     // border: 1px solid tomato;
     display: flex;
-
     height: 10%;
 
-    &--company {
-      justify-content: space-between;
-      align-items: flex-end;
-    }
   }
 
   &-details {

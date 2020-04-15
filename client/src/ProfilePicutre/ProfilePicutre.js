@@ -1,21 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 import proPic from "../resources/ProPic.jpg";
+import styled from "styled-components";
 
 import "./profilePicture.scss";
 
 const ProfilePicture = ({ shift_left, shift_top, size }) => {
   return (
-    <img
+    <ProfileImage
       src={proPic}
-      className="profilePicture"
       alt="profile"
       width={`${size}px`}
       height={`${size}px`}
-      align="right"
     />
   );
 };
+
+const ProfileImage = styled.img`
+  border-radius: 100%;
+  box-shadow: 2px 2px 13px 0px ${({ theme }) =>
+    theme.colors.header.dpShadowColor}};
+  position: absolute;
+  right: 10%;
+  bottom: 0%;
+`;
 
 ProfilePicture.propType = {
   shift_top: PropTypes.number,
