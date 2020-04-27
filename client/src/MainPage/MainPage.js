@@ -8,7 +8,7 @@ import SkillsCapsule from "../SkillsCapsule/SkillsCapsule";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../Theme/Theme";
 import styled from "styled-components";
-
+import experience from "../data";
 import "./MainPage.scss";
 
 const themeMapper = {
@@ -17,22 +17,39 @@ const themeMapper = {
 };
 
 const MainPage = () => {
-  const [currentTheme, setCurrentTheme] = useState("light");
+  const [currentTheme, setCurrentTheme] = useState("dark");
+  const [currentEmployer, setCurrentEmployer] = useState(0);
+  const experienceDetails = experience[currentEmployer];
+  const totalEmployers = experience.length;
   return (
     <ThemeProvider theme={themeMapper[currentTheme]}>
       <MainParentWithBG className="mainParent">
         <header>
           <HeaderBanner
             handleToggleTheme={(checked) => {
-              setCurrentTheme(() => (checked ? "light" : "dark"));
+              setCurrentTheme(() => (checked ? "dark" : "light"));
             }}
           />
         </header>
         <section>
-          <TimeLine nextCompany={companies.Expedia} />
+          <TimeLine
+            nextCompany={experienceDetails.nextEmpId}
+            previousCompany={experienceDetails.prevEmpId}
+            currentCompany={experienceDetails.id}
+            nextEmpIndex={(currentEmployer + 1) % totalEmployers}
+            prevEmpIndex={(currentEmployer - 1) % totalEmployers}
+            timeSpan={`${experienceDetails.from} - ${experienceDetails.to}`}
+            handleOtherEmployerClick={(empIndex) => {
+              setCurrentEmployer(() => empIndex);
+            }}
+          />
         </section>
         <main>
-          <Experience />
+          <Experience
+            title={experienceDetails.employer}
+            details={experienceDetails.details}
+            currentEmpId={experienceDetails.id}
+          />
         </main>
         <footer>
           <SkillsCapsule />
@@ -47,10 +64,4 @@ const MainParentWithBG = styled(GridLayout)`
   color: ${({ theme }) => theme.colors.defaultFont};
 `;
 
-MainPage.propTypes = {
-  currentTheme: PropTypes.string,
-};
-MainPage.defaultProps = {
-  currentTheme: "light",
-};
 export default MainPage;

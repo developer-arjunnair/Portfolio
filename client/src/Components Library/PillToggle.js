@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import FlexBox, {
-  FlexBoxValueHelper,
-} from "../Components Library/Flexbox/FlexBox";
 
 const PillToggle = ({ handleToggle }) => {
   const [toggleState, setToggleState] = useState(true);
@@ -26,15 +23,14 @@ const PillToggle = ({ handleToggle }) => {
 const ToggleLabel = styled.label`
   display: flex;
   flex-direction: row;
-  width: 60px;
-  height: 30px;
+  width: 30px;
+  height: 15px;
   border-radius: 50px;
   padding: 1px 1px;
   justify-content: ${({ toggleState }) =>
     toggleState ? "flex-start" : "flex-end"};
   align-items: center;
-  transition: background-color 0.5s ease-out;
-  background-color: ${({ toggleState }) => (toggleState ? "black" : "#F7F7F7")};
+  background-color: ${({ toggleState }) => (toggleState ? "#d5e8d4" : "aqua")};
   cursor: pointer;
 `;
 const ToggleButton = styled.input.attrs((props) => ({
@@ -49,9 +45,9 @@ const ToggleButton = styled.input.attrs((props) => ({
 
 const ToggleSwitch = styled.div`
   border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  background-color: ${({ toggleState }) => (toggleState ? "#F7F7F7" : "black")};
+  width: 50%;
+  height: 100%;
+  background-color: ${({ toggleState }) => (toggleState ? "aqua" : "#d5e8d4")};
 `;
 
 PillToggle.propTypes = {

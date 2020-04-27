@@ -14,6 +14,7 @@ const FlexBox = ({ children, ...otherProps }) => {
 const StyledFlexBox = styled.div`
   display: flex;
   flex-direction: ${({ direction }) => direction};
+  justify-content: ${({ justifyContents }) => justifyContents};
 `;
 
 FlexBox.propTypes = {
@@ -23,11 +24,13 @@ FlexBox.propTypes = {
     FlexBoxValueHelper.DIRECTION_COLUMN,
   ]),
   className: PropTypes.string,
+  justifyContents: PropTypes.string,
 };
 
 FlexBox.defaultProps = {
   direction: FlexBoxValueHelper.DIRECTION_COLUMN,
   className: "",
+  justifyContents: "intial",
 };
 
 export default FlexBox;

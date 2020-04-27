@@ -29,17 +29,17 @@ export const darkTheme = {
   colors: {
     mainBgColor: "black",
     lineColor: "bisque",
-    defaultFont: "var(--white)",
+    defaultFont: "white",
     header: {
-      bgColor: "#006565",
-      dpShadowColor: "var(--teal)",
+      bgColor: "#009821",
+      dpShadowColor: "aqua",
       font: "black",
     },
     experience: {
       bgcolor: "black",
       shadowColor: "rgba(203, 208, 8, 0.33)",
-      font: "var(--gray)",
-      titleFont: "var(--teal)",
+      font: "ivory",
+      titleFont: "aqua",
     },
     footer: {
       bgColor: "black",

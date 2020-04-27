@@ -18,15 +18,21 @@ import PillToggle from "../Components Library/PillToggle";
 const HeaderBanner = ({ isMobile, handleToggleTheme }) => {
   return (
     <FlexBox className="headerBanner">
-      <HeaderWithBgColor className="headerBanner-details">
-        <h1>Arjun Nair</h1>
-        <div>
-          <HorizontalList>
-            <IconHref icon={faPaperPlane} url={urls.gmail} />
-            <IconHref icon={faGithubSquare} url={urls.gitHub} />
-            <IconHref icon={faLinkedin} url={urls.linkedIn} />
-          </HorizontalList>
-        </div>
+      <HeaderWithBgColor
+        className="headerBanner-details"
+        direction={FlexBoxValueHelper.DIRECTION_ROW}
+        justifyContents="space-between"
+      >
+        <FlexBox>
+          <h1>Arjun Nair</h1>
+          <div>
+            <HorizontalList>
+              <IconHref icon={faPaperPlane} url={urls.gmail} />
+              <IconHref icon={faGithubSquare} url={urls.gitHub} />
+              <IconHref icon={faLinkedin} url={urls.linkedIn} />
+            </HorizontalList>
+          </div>
+        </FlexBox>
         <PillToggle handleToggle={handleToggleTheme} />
       </HeaderWithBgColor>
       <div className="headerBanner-dpConatiner">

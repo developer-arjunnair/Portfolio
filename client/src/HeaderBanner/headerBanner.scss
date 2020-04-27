@@ -1,18 +1,27 @@
-.headerBanner {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
+ .headerBanner {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   width: 100%;
 
-  &-details {
-    height: 70%;
-    border-radius: 20px;
-    padding: 2%;
-    box-shadow: 2px 2px 4px 0px #323e379c;
-  }
+   &-details {
+     height: 100%;
+     border-radius: 20px;
+     padding: 2%;
+     box-shadow: 2px 2px 4px 0px #323e379c;
 
-  &-dpConatiner {
-    position: relative;
-    height: 30%;
-  }
-}
+     @media (min-width: 768px) {
+       display: 70%;
+     }
+   }
+
+   &-dpConatiner {
+     position: relative;
+     display: none;
+     height: 30%;
+
+     @media (min-width: 768px) {
+       display: inherit
+     }
+   }
+ }

@@ -20,15 +20,18 @@ const Lined = styled.div`
 `;
 
 const LineText = styled.div`
-  transform: rotate(-90deg);
-  position: absolute;
-  top: 50%;
-  right: -85px;
   display: flex;
-  width: 200px;
   align-items: center;
   justify-content: center;
-  font-size: 1.2em;
+  @media (min-width: 768px) {
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 50%;
+    right: -85px;
+    width: 200px;
+    font-size: 1.2em;
+  }
+  font-size: 0.9em;
 `;
 
 Line.prototype = {
