@@ -32,6 +32,12 @@ const experience = [
         ],
       },
     ],
+    skillsSet: [
+      { percent: 100, text: "React", color: "red" },
+      { percent: 90, text: "Redux", color: "blue" },
+      { percent: 80, text: "PHP", color: "green" },
+      { percent: 75, text: "Java", color: "orange" },
+    ],
   },
   {
     id: "expedia",
@@ -66,6 +72,12 @@ const experience = [
         ],
       },
     ],
+    skillsSet: [
+      { percent: 100, text: "React", color: "red" },
+      { percent: 90, text: "MOB-X", color: "blue" },
+      { percent: 80, text: "Java", color: "orange" },
+      { percent: 80, text: "SPRING", color: "green" },
+    ],
   },
   {
     id: "wipro",
@@ -99,6 +111,12 @@ const experience = [
           "Be prompt on the feedback channel and be able to judge and fix P1 and P0 prod issues",
         ],
       },
+    ],
+    skillsSet: [
+      { percent: 100, text: "SAP", color: "red" },
+      { percent: 70, text: "Java", color: "blue" },
+      { percent: 60, text: "SAP UI5", color: "orange" },
+      { percent: 60, text: "JS", color: "green" },
     ],
   },
 ];

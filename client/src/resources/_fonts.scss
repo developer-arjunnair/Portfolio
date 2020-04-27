@@ -15,7 +15,7 @@
 @mixin gb-experience {
   h2 {
     margin: 15px 0px;
-    font: 1.8em 'Major Mono Display', monospace;
+    font: 1.5em 'Major Mono Display', monospace;
 
     @media (min-width: 768px) {
       font-size: 3em;
@@ -31,16 +31,3 @@
   sans-serif;
   font-size: 1em;
 }
-
-$Font-Srisakdi : 'Srisakdi',
-cursive;
-$Font-Header-Subtitle: 'Comfortaa',
-cursive;
-
-
-$Font-Title: 'Zilla Slab',
-serif;
-$Font-Subtitle: 'Zilla Slab',
-serif;
-$Font-text: 'Special Elite',
-cursive;

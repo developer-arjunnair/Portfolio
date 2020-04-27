@@ -24,13 +24,13 @@ const ExperienceCapsuleStyled = styled(FlexBox)`
   background-color: ${({ theme }) => theme.colors.experience.bgColor};
   color: ${({ theme }) => theme.colors.experience.font};
 
-  ${({ theme }) => theme.colors.experience.shadowColor};
   flex-grow: 1;
   height: 45%;
   @media (min-width: 768px) {
     padding: 10px 42px;
     margin: 5px 20px;
-    box-shadow: 3px 3px 3px 1px;
+    box-shadow: 3px 3px 10px 0px
+      ${({ theme }) => theme.colors.experience.shadowColor};
     border-radius: 55px;
   }
 `;

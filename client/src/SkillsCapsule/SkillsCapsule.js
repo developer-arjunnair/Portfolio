@@ -5,14 +5,7 @@ import FlexBox, {
 import styled from "styled-components";
 import SkillsProgress from "../Components Library/SkillsProgress/SkillsProgress";
 
-const skillsSet = [
-  { percent: 100, text: "React", color: "red" },
-  { percent: 90, text: "Redux", color: "blue" },
-  { percent: 80, text: "PHP", color: "green" },
-  { percent: 75, text: "Java", color: "orange" },
-];
-
-const SkillsCapsule = () => {
+const SkillsCapsule = ({ skillsSet }) => {
   return (
     <SkillsCapsuleStyled direction={FlexBoxValueHelper.DIRECTION_ROW}>
       {skillsSet.map((skillDetails) => (

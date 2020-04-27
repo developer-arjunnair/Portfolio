@@ -52,7 +52,7 @@ const MainPage = () => {
           />
         </main>
         <footer>
-          <SkillsCapsule />
+          <SkillsCapsule skillsSet={experienceDetails.skillsSet} />
         </footer>
       </MainParentWithBG>
     </ThemeProvider>

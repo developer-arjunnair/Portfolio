@@ -21,7 +21,7 @@ export const lightTheme = {
   },
   fonts: {
     titleFont: "",
-    font: "var(--teal)",
+    font: "aqua",
   },
 };
 
