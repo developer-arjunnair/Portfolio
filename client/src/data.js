@@ -9,26 +9,14 @@ const experience = [
     prevEmpId: "",
     details: [
       {
-        role: "Senior Software Engineer",
+        role: "Engineer",
         responsibilities: [
           "Storefront - Alternative Financing",
-          "More responsibilty 1",
+          "Work closely with the ",
           "More responsibilty 2",
           "More responsibilty 3 More responsibilty 3 More responsibilty 3 More responsibilty 3 More responsibilty 3",
           "More responsibilty 4 More responsibilty 4 More responsibilty 4 More responsibilty 4 More responsibilty 4 More responsibilty 4 More responsibilty 4 More responsibilty 4",
           "More responsibilty 5 More responsibilty 5 More responsibilty 5 More responsibilty 5 More responsibilty 5 More responsibilty 5",
-        ],
-      },
-      {
-        role: "Full Stack Engineer",
-        responsibilities: [
-          "Sotrefront - Registry",
-          "Create scalable react apps",
-          "working on storefront- registry team",
-          "Be proactive and work on production alerts and issues",
-          "A canditate for Wayfair registry third party integration. Communicate with the Merchants and 3rd party providers",
-          "Worked and delivered a project for the registry team. To try out, create a registry in wayfair.com/registry and after you login you should be landing on the registry quiz experience. Hopefully its still there.",
-          "More responsibilty",
         ],
       },
     ],
@@ -43,7 +31,7 @@ const experience = [
     id: "expedia",
     from: "May 2018",
     to: "June 2019",
-    employer: "KFORCE - Expedia",
+    employer: "Expedia",
     domain: "TRAVEL AND HOSPITALITY",
     prevEmpId: "wayfair",
     nextEmpId: "wipro",

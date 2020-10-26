@@ -37,6 +37,7 @@ const Experience = ({ title, details, currentEmpId }) => {
 const ExperienceContainerStyled = styled(FlexBox)`
   justify-content: space-between;
   align-items: flex-end;
+  line-height: 2;
   color: ${({ theme }) => theme.colors.experience.titleFont};
 `;
 

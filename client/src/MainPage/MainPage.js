@@ -10,6 +10,7 @@ import { lightTheme, darkTheme } from "../Theme/Theme";
 import styled from "styled-components";
 import experience from "../data";
 import "./MainPage.scss";
+import { useParams } from "react-router-dom";
 
 const themeMapper = {
   light: lightTheme,
@@ -17,10 +18,11 @@ const themeMapper = {
 };
 
 const MainPage = () => {
-  const [currentTheme, setCurrentTheme] = useState("dark");
-  const [currentEmployer, setCurrentEmployer] = useState(0);
+  const [currentTheme, setCurrentTheme] = useState("light");
+  const { currentEmployer } = useParams();
   const experienceDetails = experience[currentEmployer];
   const totalEmployers = experience.length;
+  window.scrollTo(0, 0);
   return (
     <ThemeProvider theme={themeMapper[currentTheme]}>
       <MainParentWithBG className="mainParent">
@@ -39,9 +41,6 @@ const MainPage = () => {
             nextEmpIndex={(currentEmployer + 1) % totalEmployers}
             prevEmpIndex={(currentEmployer - 1) % totalEmployers}
             timeSpan={`${experienceDetails.from} - ${experienceDetails.to}`}
-            handleOtherEmployerClick={(empIndex) => {
-              setCurrentEmployer(() => empIndex);
-            }}
           />
         </section>
         <main>

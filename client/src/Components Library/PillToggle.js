@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const PillToggle = ({ handleToggle }) => {
-  const [toggleState, setToggleState] = useState(true);
+  const [toggleState, setToggleState] = useState(false);
 
   return (
     <ToggleLabel toggleState={toggleState}>

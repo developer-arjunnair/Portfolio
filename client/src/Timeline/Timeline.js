@@ -1,20 +1,35 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Line from "../Components Library/Line/Line";
-import Circle, { CircleImage } from "../Components Library/Circle/Circle";
+import Circle from "../Components Library/Circle/Circle";
 
 import ExpediaLogo from "../resources/Expedia round.png";
 import WayfairLogo from "../resources/wayfair-logo.png";
 import WiproLogo from "../resources/WiproRoundLogo.png";
 import styled from "styled-components";
 import { getDeviceType, deviceTypes } from "../utils/deviceCheck";
+import { Link } from "react-router-dom";
 import "./timeline.scss";
+import SmallBox from "./SmallBox";
 
 const logoList = {
   wayfair: WayfairLogo,
   expedia: ExpediaLogo,
   wipro: WiproLogo,
 };
+const companyInitial = {
+  wayfair: "W",
+  expedia: "E",
+  wipro: "W",
+};
+
+const getRandomColor = () => {
+  const randomNum = Math.floor(Math.random() * Math.floor(4));
+  console.log("random num = ", randomNum);
+  const colors = ["#ff0000", "#00ff40", "#0040ff", "#8000ff"];
+  return colors[randomNum];
+};
+
 export const companies = Object.keys(logoList).reduce((acc, companyName) => {
   acc[companyName] = companyName;
   return acc;
@@ -36,25 +51,19 @@ const TimeLine = ({
     <TimeLineStyled>
       {previousCompany && (
         <React.Fragment>
-          <Circle
-            as="button"
-            size={106}
-            mSize={50}
-            onClick={() => {
-              handleOtherEmployerClick(prevEmpIndex);
-              window.scrollTo(0, 0);
-            }}
+          <Link
+            to={`/${prevEmpIndex}`}
+            style={{ textDecoration: "none", outline: 0 }}
           >
-            <CircleImage
-              src={logoList[previousCompany]}
-              alt={previousCompany}
-            />
-          </Circle>
+            <SmallBox as="button" isTop>
+              . . .
+            </SmallBox>
+          </Link>
           <Line className="timeLine-connector--secondary" />
         </React.Fragment>
       )}
-      <Circle size={106} mSize={50}>
-        <CircleImage src={logoList[currentCompany]} alt={currentCompany} />
+      <Circle size={106} mSize={50} shade={getRandomColor()}>
+        {companyInitial[currentCompany]}
       </Circle>
       <Line
         className="timeLine-connector--primary"
@@ -63,17 +72,12 @@ const TimeLine = ({
       />
       {nextCompany && (
         <React.Fragment>
-          <Circle
-            as="button"
-            size={106}
-            mSize={50}
-            onClick={() => {
-              handleOtherEmployerClick(nextEmpIndex);
-              window.scrollTo(0, 0);
-            }}
+          <Link
+            to={`/${nextEmpIndex}`}
+            style={{ textDecoration: "none", outline: 0, cursor: "s-resize" }}
           >
-            <CircleImage src={logoList[nextCompany]} alt={nextCompany} />
-          </Circle>
+            <SmallBox as="button">. . .</SmallBox>
+          </Link>
           <Line className="timeLine-connector--secondary" />{" "}
         </React.Fragment>
       )}
@@ -85,7 +89,7 @@ const TimeLineStyled = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 100%;
+  height: 98%;
   padding: 10% 0;
   color: ${({ theme }) => theme.colors.lineColor};
   @media (min-width: 768px) {

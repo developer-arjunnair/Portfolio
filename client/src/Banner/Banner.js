@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import "./banner.scss";
 import {
   faEnvelope,
   faMobileAlt,
-  faAddressCard
+  faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
 import IconHref from "../SharedComponents/IconHref/IconHref";
 import proPic from "../ProPic.jpg";
@@ -14,22 +14,22 @@ const iconList = [
     text: "135 Quincy Ave, MA",
     icon: faAddressCard,
     url: "https://maps.google.com",
-    showOnMobile: false
+    showOnMobile: false,
   },
   {
     id: 2,
     text: "arjun.nair89@outlook.com",
     icon: faEnvelope,
     url: "mailto:arjun.nair89@outlook.com",
-    showOnMobile: true
+    showOnMobile: true,
   },
   {
     id: 3,
     text: "6692419274",
     icon: faMobileAlt,
     url: "tel:+1-669-241-9274",
-    showOnMobile: true
-  }
+    showOnMobile: true,
+  },
 ];
 
 const TopBanner = ({ isMobile }) => (
@@ -38,7 +38,7 @@ const TopBanner = ({ isMobile }) => (
       <h1> Arjun Nair </h1>
       <address className="lead">
         <ul className="list-unstyled list-inline">
-          {iconList.map(ic => (
+          {iconList.map((ic) => (
             <IconHref key={ic.id} {...ic} isMobile={isMobile} />
           ))}
         </ul>

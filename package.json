@@ -7,7 +7,7 @@
     "start": "node server.js",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "dev-server": "node server.js",
-    "dev-client": "cd client && npm run start",
+    "dev-client": "cd client && yarn run start",
     "con-start": "concurrently -k npm:dev-*"
   },
   "repository": {
@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/developer-arjunnair/BIO#readme",
   "dependencies": {
-    "express": "^4.17.1"
-  }
+    "chokidar": "^3.4.3",
+    "express": "^4.17.1",
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {}
 }

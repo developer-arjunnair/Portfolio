@@ -13,7 +13,6 @@ import styled from "styled-components";
 
 //Styles
 import "./headerBanner.scss";
-import PillToggle from "../Components Library/PillToggle";
 
 const HeaderBanner = ({ isMobile, handleToggleTheme }) => {
   return (
@@ -33,7 +32,6 @@ const HeaderBanner = ({ isMobile, handleToggleTheme }) => {
             </HorizontalList>
           </div>
         </FlexBox>
-        <PillToggle handleToggle={handleToggleTheme} />
       </HeaderWithBgColor>
       <div className="headerBanner-dpConatiner">
         <ProfilePicture shift_left={80} shift_top={0} size={150} />
