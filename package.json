@@ -1,0 +1,29 @@
+{
+  "name": "bio",
+  "version": "1.0.0",
+  "description": "This is the server for BIO",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "dev-server": "node server.js",
+    "dev-client": "cd client && yarn run start",
+    "con-start": "concurrently -k npm:dev-*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developer-arjunnair/BIO.git"
+  },
+  "author": "Arjun Nair",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/developer-arjunnair/BIO/issues"
+  },
+  "homepage": "https://github.com/developer-arjunnair/BIO#readme",
+  "dependencies": {
+    "chokidar": "^3.4.3",
+    "express": "^4.17.1",
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {}
+}
