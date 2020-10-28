@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "314981b3650538afa6e6",
+    "revision": "77c333973cc64ff3bd93",
     "url": "/Portfolio/static/css/main.6dbd592e.chunk.css"
   },
   {
-    "revision": "314981b3650538afa6e6",
-    "url": "/Portfolio/static/js/main.314981b3.chunk.js"
+    "revision": "77c333973cc64ff3bd93",
+    "url": "/Portfolio/static/js/main.77c33397.chunk.js"
   },
   {
     "revision": "6b64d540f1308ee928ad",
     "url": "/Portfolio/static/js/runtime~main.6b64d540.js"
   },
   {
-    "revision": "6175dfe2b27d79966b97",
+    "revision": "b87bd30dc6fda9512ccd",
     "url": "/Portfolio/static/css/2.b8247490.chunk.css"
   },
   {
-    "revision": "6175dfe2b27d79966b97",
-    "url": "/Portfolio/static/js/2.6175dfe2.chunk.js"
+    "revision": "b87bd30dc6fda9512ccd",
+    "url": "/Portfolio/static/js/2.b87bd30d.chunk.js"
   },
   {
     "revision": "9e3bcd35fc9d5758e786f814ab7636a0",
@@ -40,7 +40,7 @@ self.__precacheManifest = [
     "url": "/Portfolio/static/media/Expedia.6c77dc0f.png"
   },
   {
-    "revision": "20c1b4b88f4b306e99d262a652ce409e",
+    "revision": "79f77958d7b873549fbe1159ecffbd0e",
     "url": "/Portfolio/index.html"
   }
 ];
