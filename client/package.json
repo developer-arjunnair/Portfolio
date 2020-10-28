@@ -2,6 +2,8 @@
   "name": "who-am-i",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://developer-arjunnair.github.io/Portfolio/",
+  "repository": "https://github.com/developer-arjunnair/Portfolio.git",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
@@ -10,6 +12,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "bootstrap": "^4.3.1",
     "fsevents": "^2.1.2",
+    "ghpages": "^0.0.10",
     "node-sass": "^4.14.1",
     "react": "^16.8.2",
     "react-circular-progressbar": "^2.0.3",
@@ -26,7 +29,9 @@
     "eject": "react-scripts eject",
     "gcp-set-project": "gcloud config set project who-am-i-232019",
     "gcp-deploy": "gcloud app deploy",
-    "gcp-open-page": "gcloud app browse"
+    "gcp-open-page": "gcloud app browse",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

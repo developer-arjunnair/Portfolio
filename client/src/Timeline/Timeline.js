@@ -25,7 +25,6 @@ const companyInitial = {
 
 const getRandomColor = () => {
   const randomNum = Math.floor(Math.random() * Math.floor(4));
-  console.log("random num = ", randomNum);
   const colors = ["#ff0000", "#00ff40", "#0040ff", "#8000ff"];
   return colors[randomNum];
 };
@@ -51,14 +50,14 @@ const TimeLine = ({
     <TimeLineStyled>
       {previousCompany && (
         <React.Fragment>
-          <Link
-            to={`/${prevEmpIndex}`}
-            style={{ textDecoration: "none", outline: 0 }}
+          <SmallBox
+            as="button"
+            onClick={() => handleOtherEmployerClick(prevEmpIndex)}
+            isTop
           >
-            <SmallBox as="button" isTop>
-              . . .
-            </SmallBox>
-          </Link>
+            . . .
+          </SmallBox>
+
           <Line className="timeLine-connector--secondary" />
         </React.Fragment>
       )}
@@ -72,12 +71,12 @@ const TimeLine = ({
       />
       {nextCompany && (
         <React.Fragment>
-          <Link
-            to={`/${nextEmpIndex}`}
-            style={{ textDecoration: "none", outline: 0, cursor: "s-resize" }}
+          <SmallBox
+            as="button"
+            onClick={() => handleOtherEmployerClick(nextEmpIndex)}
           >
-            <SmallBox as="button">. . .</SmallBox>
-          </Link>
+            . . .
+          </SmallBox>
           <Line className="timeLine-connector--secondary" />{" "}
         </React.Fragment>
       )}
