@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "77c333973cc64ff3bd93",
-    "url": "/Portfolio/static/css/main.6dbd592e.chunk.css"
+    "revision": "21c3aac4e1d4a9806e76",
+    "url": "/Portfolio/static/css/main.2969d335.chunk.css"
   },
   {
-    "revision": "77c333973cc64ff3bd93",
-    "url": "/Portfolio/static/js/main.77c33397.chunk.js"
+    "revision": "21c3aac4e1d4a9806e76",
+    "url": "/Portfolio/static/js/main.21c3aac4.chunk.js"
   },
   {
     "revision": "6b64d540f1308ee928ad",
@@ -40,7 +40,7 @@ self.__precacheManifest = [
     "url": "/Portfolio/static/media/Expedia.6c77dc0f.png"
   },
   {
-    "revision": "79f77958d7b873549fbe1159ecffbd0e",
+    "revision": "611a3d360d5b402a6cdd4bb8ee4e0653",
     "url": "/Portfolio/index.html"
   }
 ];
