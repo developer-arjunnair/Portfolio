@@ -14,11 +14,13 @@
     padding-left: 5px;
 
     li {
-      margin-bottom: 15px;
+      margin: 15px auto;
       font-weight: bold;
-      box-shadow: inset 0px -1px 5px 1px #0a0a0a82;
-      padding: 13px 15px 10px;
+      box-shadow: 8px 7px 10px 1px #0a0a0a82;
+      padding: 20px 30px;
       border-radius: 10px;
+      width: 75%;
+      background-color: #d4d2d21f;
     }
   }
 }
