@@ -10,9 +10,15 @@ import RoundFloatingButton from "../Components Library/RoundFloatingButton/Round
 import { lightTheme, darkTheme } from "../Theme/Theme";
 import styled from "styled-components";
 import experience from "../data";
-import { faEnvelopeOpenText } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelopeOpenText,
+  faCommentDots,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MainPage.scss";
+import CustomModal from "../Components Library/Modal";
+import EmailForm from "../EmailForm/EmailForm";
+import sendEmail from "../utils/EmailUtil";
 
 const themeMapper = {
   light: lightTheme,
@@ -21,6 +27,7 @@ const themeMapper = {
 
 const MainPage = () => {
   const [currentTheme, setCurrentTheme] = useState("light");
+  const [show, setShow] = useState(false);
   const [currentEmployer, setCurrentEmployer] = useState(0);
   const experienceDetails = experience[currentEmployer];
   const totalEmployers = experience.length;
@@ -57,9 +64,29 @@ const MainPage = () => {
           <SkillsCapsule skillsSet={experienceDetails.skillsSet} />
         </footer>
         <RoundFloatingButton
-          icon={<FontAwesomeIcon icon={faEnvelopeOpenText} size="2x" />}
+          icon={<FontAwesomeIcon icon={faCommentDots} size="2x" />}
           hoverText="Let's talk more"
+          handleClick={() => {
+            setShow(true);
+          }}
         />
+        <CustomModal
+          show={show}
+          heading="Excited to hear from you!"
+          handleCancel={() => {
+            setShow(false);
+          }}
+          handleSubmit={() => {
+            alert("you have clicked submit");
+            setShow(false);
+          }}
+        >
+          <EmailForm
+            handleSend={(values) => {
+              sendEmail(values);
+            }}
+          />
+        </CustomModal>
       </MainParentWithBG>
     </ThemeProvider>
   );

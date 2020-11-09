@@ -1,17 +1,22 @@
-import { faIcons } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { getDeviceType, deviceTypes } from "../../utils/deviceCheck";
 
 const RoundFloatingButton = ({ handleClick, icon, hoverText }) => {
   const [buttonText, setButtonText] = useState("");
+  const isSmallScreen = getDeviceType() <= deviceTypes.TABLET;
   return (
     <RoundButton
       onClick={handleClick}
       onMouseEnter={() => {
-        textRenderDelay(setButtonText, hoverText);
+        if (!isSmallScreen) {
+          textRenderDelay(setButtonText, hoverText);
+        }
       }}
       onMouseLeave={() => {
-        textRenderDelay(setButtonText, "");
+        if (!isSmallScreen) {
+          textRenderDelay(setButtonText, "");
+        }
       }}
     >
       {icon}
@@ -48,8 +53,10 @@ const RoundButton = styled.button`
   justify-content: space-around;
   align-items: center;
   font-size: inherit;
-  &:hover {
-    border-radius: 5px;
-    width: 170px;
+  @media (min-width: 768px) {
+    &:hover {
+      border-radius: 5px;
+      width: 170px;
+    }
   }
 `;

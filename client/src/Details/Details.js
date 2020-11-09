@@ -13,27 +13,12 @@ export default class Details extends Component {
       this.setState({ isVisible: true });
     });
   }
-  // get LI() {
-  //   return posed.li({
-  //     enter: { opacity: 1, transition: { duration: 200 } },
-  //     exit: { opacity: 0 }
-  //   });
-  // }
-  // get Container() {
-  //   return posed.div();
-  // }
-
-  // get UL() {
-  //   return posed.ul({
-  //     enter: { staggerChildren: 50 }
-  //   });
-  // }
   render() {
     const {
       Container,
       LI,
       UL,
-      state: { isVisible }
+      state: { isVisible },
     } = this;
     return (
       <BSContainer className="bg-warning mt-3">
