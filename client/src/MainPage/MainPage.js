@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import GridLayout from "../Components Library/Grid/GridLayout";
 import HeaderBanner from "../HeaderBanner/HeaderBanner";
-import TimeLine, { companies } from "../Timeline/Timeline";
+import TimeLine from "../Timeline/Timeline";
 import Experience from "../Experience/Experience";
 import SkillsCapsule from "../SkillsCapsule/SkillsCapsule";
 import { ThemeProvider } from "styled-components";
@@ -10,6 +10,8 @@ import RoundFloatingButton from "../Components Library/RoundFloatingButton/Round
 import { lightTheme, darkTheme } from "../Theme/Theme";
 import styled from "styled-components";
 import experience from "../data";
+import { faEnvelopeOpenText } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MainPage.scss";
 
 const themeMapper = {
@@ -54,7 +56,10 @@ const MainPage = () => {
         <footer>
           <SkillsCapsule skillsSet={experienceDetails.skillsSet} />
         </footer>
-        <RoundFloatingButton text="A" hoverText="Send a feedback" />
+        <RoundFloatingButton
+          icon={<FontAwesomeIcon icon={faEnvelopeOpenText} size="2x" />}
+          hoverText="Let's talk more"
+        />
       </MainParentWithBG>
     </ThemeProvider>
   );

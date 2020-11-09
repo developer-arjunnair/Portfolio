@@ -1,9 +1,9 @@
+import { faIcons } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
-import "./roundFloatingButton.scss";
 import styled from "styled-components";
 
-const RoundFloatingButton = ({ handleClick, text, hoverText }) => {
-  const [buttonText, setButtonText] = useState(text);
+const RoundFloatingButton = ({ handleClick, icon, hoverText }) => {
+  const [buttonText, setButtonText] = useState("");
   return (
     <RoundButton
       onClick={handleClick}
@@ -11,20 +11,21 @@ const RoundFloatingButton = ({ handleClick, text, hoverText }) => {
         textRenderDelay(setButtonText, hoverText);
       }}
       onMouseLeave={() => {
-        textRenderDelay(setButtonText, text);
+        textRenderDelay(setButtonText, "");
       }}
     >
+      {icon}
       {buttonText}
     </RoundButton>
   );
 };
 
 let roundButtonTextDelayTimer;
-const textRenderDelay = (setStateFn, text) => {
+const textRenderDelay = (setStateFn, content) => {
   clearTimeout(roundButtonTextDelayTimer);
   setStateFn("");
   roundButtonTextDelayTimer = setTimeout(() => {
-    setStateFn(text);
+    setStateFn(content);
   }, 200);
 };
 
@@ -42,8 +43,13 @@ const RoundButton = styled.button`
   border-radius: 50%;
   transition: width 0.3s, border-radius 0.5s;
   transition-timing-function: ease-out;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: inherit;
   &:hover {
     border-radius: 5px;
-    width: 200px;
+    width: 170px;
   }
 `;

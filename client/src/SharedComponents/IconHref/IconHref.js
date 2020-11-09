@@ -1,5 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon, IconProp } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types";
 import "./iconHref.scss";
 
@@ -28,14 +28,14 @@ IconHref.propTypes = {
   url: PropTypes.string,
   text: PropTypes.string,
   showOnMobile: PropTypes.bool,
-  isMobile: PropTypes.bool
+  isMobile: PropTypes.bool,
 };
 
 IconHref.defaultProps = {
   url: "#",
   text: "",
   showOnMobile: false,
-  isMobile: false
+  isMobile: false,
 };
 
 export default IconHref;
