@@ -11,15 +11,18 @@ import { lightTheme, darkTheme } from "../Theme/Theme";
 import styled from "styled-components";
 import experience from "../data";
 import {
-  faEnvelopeOpenText,
   faCommentDots,
+  faCheckCircle,
+  faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MainPage.scss";
 import CustomModal from "../Components Library/Modal";
 import EmailForm from "../EmailForm/EmailForm";
 import sendEmail from "../utils/EmailUtil";
-
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 const themeMapper = {
   light: lightTheme,
   dark: darkTheme,
@@ -28,6 +31,8 @@ const themeMapper = {
 const MainPage = () => {
   const [currentTheme, setCurrentTheme] = useState("light");
   const [show, setShow] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
   const [currentEmployer, setCurrentEmployer] = useState(0);
   const experienceDetails = experience[currentEmployer];
   const totalEmployers = experience.length;
@@ -76,16 +81,50 @@ const MainPage = () => {
           handleCancel={() => {
             setShow(false);
           }}
-          handleSubmit={() => {
-            alert("you have clicked submit");
-            setShow(false);
-          }}
         >
           <EmailForm
             handleSend={(values) => {
-              sendEmail(values);
+              sendEmail(values)
+                .then(() => {
+                  setShow(false);
+                  setSubmitSuccess(true);
+                  setShowToast(true);
+                })
+                .catch(() => {
+                  setShow(false);
+                  setSubmitSuccess(false);
+                  setShowToast(true);
+                });
             }}
           />
+        </CustomModal>
+        <CustomModal
+          show={showToast}
+          heading={
+            submitSuccess ? (
+              <p className="h3">
+                <FontAwesomeIcon icon={faCheckCircle} size="" /> Delivered
+              </p>
+            ) : (
+              <p className="h3">
+                <FontAwesomeIcon icon={faExclamationTriangle} size="" /> Oops!
+                Something went wrong
+              </p>
+            )
+          }
+          handleCancel={() => {
+            setShowToast(false);
+          }}
+        >
+          <Container className="lead">
+            <Row>
+              <Col>
+                {submitSuccess
+                  ? "Thanks for your email. I will be responding A.S.A.P"
+                  : "Hmmm.. Could you try once again? Sorry about the trouble"}
+              </Col>
+            </Row>
+          </Container>
         </CustomModal>
       </MainParentWithBG>
     </ThemeProvider>

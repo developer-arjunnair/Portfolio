@@ -13,7 +13,6 @@ const sendEmail = ({ content, email, reason, name }) => {
   <p>${content}</p>
   </body>
   </html>`;
-  console.log(body);
   return Email.send({
     SecureToken: "583efbe9-11b0-45a5-9f1c-23074e987b1e",
     To: "aku2anu@gmail.com",
