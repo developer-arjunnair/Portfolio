@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "ddb5a292efde83034efa",
-    "url": "/Portfolio/static/css/main.e034c836.chunk.css"
+    "revision": "973a1da5530bba674f77",
+    "url": "/Portfolio/static/css/main.d5ff1c8e.chunk.css"
   },
   {
-    "revision": "ddb5a292efde83034efa",
-    "url": "/Portfolio/static/js/main.ddb5a292.chunk.js"
+    "revision": "973a1da5530bba674f77",
+    "url": "/Portfolio/static/js/main.973a1da5.chunk.js"
   },
   {
     "revision": "6b64d540f1308ee928ad",
     "url": "/Portfolio/static/js/runtime~main.6b64d540.js"
   },
   {
-    "revision": "b2bbcaba5e8e5895da88",
-    "url": "/Portfolio/static/css/2.b8247490.chunk.css"
+    "revision": "ea08c8dd1256382de1c3",
+    "url": "/Portfolio/static/css/2.f0eb2b32.chunk.css"
   },
   {
-    "revision": "b2bbcaba5e8e5895da88",
-    "url": "/Portfolio/static/js/2.b2bbcaba.chunk.js"
+    "revision": "ea08c8dd1256382de1c3",
+    "url": "/Portfolio/static/js/2.ea08c8dd.chunk.js"
   },
   {
     "revision": "9e3bcd35fc9d5758e786f814ab7636a0",
@@ -40,7 +40,7 @@ self.__precacheManifest = [
     "url": "/Portfolio/static/media/Expedia.6c77dc0f.png"
   },
   {
-    "revision": "5bb51367cc11a8b86c7c57f7cd96bbe8",
+    "revision": "de47be7269f6be32bfee8094a364c47b",
     "url": "/Portfolio/index.html"
   }
 ];
