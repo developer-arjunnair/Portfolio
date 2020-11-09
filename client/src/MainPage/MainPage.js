@@ -6,6 +6,7 @@ import TimeLine, { companies } from "../Timeline/Timeline";
 import Experience from "../Experience/Experience";
 import SkillsCapsule from "../SkillsCapsule/SkillsCapsule";
 import { ThemeProvider } from "styled-components";
+import RoundFloatingButton from "../Components Library/RoundFloatingButton/RoundFloatingButton";
 import { lightTheme, darkTheme } from "../Theme/Theme";
 import styled from "styled-components";
 import experience from "../data";
@@ -53,6 +54,7 @@ const MainPage = () => {
         <footer>
           <SkillsCapsule skillsSet={experienceDetails.skillsSet} />
         </footer>
+        <RoundFloatingButton text="A" hoverText="Send a feedback" />
       </MainParentWithBG>
     </ThemeProvider>
   );
