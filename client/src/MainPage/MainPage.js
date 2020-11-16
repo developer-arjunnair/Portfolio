@@ -6,12 +6,10 @@ import TimeLine from "../Timeline/Timeline";
 import Experience from "../Experience/Experience";
 import SkillsCapsule from "../SkillsCapsule/SkillsCapsule";
 import { ThemeProvider } from "styled-components";
-import RoundFloatingButton from "../Components Library/RoundFloatingButton/RoundFloatingButton";
 import { lightTheme, darkTheme } from "../Theme/Theme";
 import styled from "styled-components";
 import experience from "../data";
 import {
-  faCommentDots,
   faCheckCircle,
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
@@ -23,6 +21,8 @@ import sendEmail from "../utils/EmailUtil";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import FloatingSection from "../FloatingSection";
+
 const themeMapper = {
   light: lightTheme,
   dark: darkTheme,
@@ -30,7 +30,7 @@ const themeMapper = {
 
 const MainPage = () => {
   const [currentTheme, setCurrentTheme] = useState("light");
-  const [show, setShow] = useState(false);
+  const [showEmailModal, setShowEmailModal] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [currentEmployer, setCurrentEmployer] = useState(0);
@@ -58,7 +58,7 @@ const MainPage = () => {
             handleOtherEmployerClick={setCurrentEmployer}
           />
         </section>
-        <main>
+      <main>
           <Experience
             title={experienceDetails.employer}
             details={experienceDetails.details}
@@ -68,30 +68,42 @@ const MainPage = () => {
         <footer>
           <SkillsCapsule skillsSet={experienceDetails.skillsSet} />
         </footer>
-        <RoundFloatingButton
-          icon={<FontAwesomeIcon icon={faCommentDots} size="2x" />}
-          hoverText="Let's talk more"
-          handleClick={() => {
-            setShow(true);
+        <FloatingSection
+          handleFeedbackClick={() => {
+            setShowEmailModal(true);
           }}
+          nextCompanyDetails={
+            {
+              hasNext: experienceDetails.nextEmpId !== "",
+              handleNextClick: () => { setCurrentEmployer((currentEmployer + 1) % totalEmployers) },
+              name: experienceDetails.employer,
+            }
+          }
+          prevCompanyDetails={
+            {
+              hasPrev: experienceDetails.prevEmpId !== "",
+              handlePrevClick: () => { setCurrentEmployer((currentEmployer - 1) % totalEmployers) },
+              name: experienceDetails.employer,
+            }
+          }
         />
         <CustomModal
-          show={show}
+          show={showEmailModal}
           heading="Excited to hear from you!"
           handleCancel={() => {
-            setShow(false);
+            setShowEmailModal(false);
           }}
         >
           <EmailForm
             handleSend={(values) => {
               sendEmail(values)
                 .then(() => {
-                  setShow(false);
+                  setShowEmailModal(false);
                   setSubmitSuccess(true);
                   setShowToast(true);
                 })
                 .catch(() => {
-                  setShow(false);
+                  setShowEmailModal(false);
                   setSubmitSuccess(false);
                   setShowToast(true);
                 });
@@ -106,11 +118,11 @@ const MainPage = () => {
                 <FontAwesomeIcon icon={faCheckCircle} size="" /> Delivered
               </p>
             ) : (
-              <p className="h3">
-                <FontAwesomeIcon icon={faExclamationTriangle} size="" /> Oops!
+                <p className="h3">
+                  <FontAwesomeIcon icon={faExclamationTriangle} size="" /> Oops!
                 Something went wrong
               </p>
-            )
+              )
           }
           handleCancel={() => {
             setShowToast(false);
@@ -131,7 +143,7 @@ const MainPage = () => {
   );
 };
 
-const MainParentWithBG = styled(GridLayout)`
+const MainParentWithBG = styled(GridLayout) `
   background-color: ${({ theme }) => theme.colors.mainBgColor};
   color: ${({ theme }) => theme.colors.defaultFont};
 `;

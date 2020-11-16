@@ -37,9 +37,6 @@ const textRenderDelay = (setStateFn, content) => {
 export default RoundFloatingButton;
 
 const RoundButton = styled.button`
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
   width: 50px;
   height: 50px;
   box-shadow: 4px 5px 9px 0px #121312e3;
