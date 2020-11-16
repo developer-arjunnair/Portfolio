@@ -18,6 +18,7 @@ const FloatingSection = ({
       icon={<FontAwesomeIcon icon={faCommentDots} size="2x" />}
       hoverText="Let's talk more"
       handleClick={handleFeedbackClick}
+      heartBeat
     />
     {prevCompanyDetails.hasPrev &&
       <RoundFloatingButton

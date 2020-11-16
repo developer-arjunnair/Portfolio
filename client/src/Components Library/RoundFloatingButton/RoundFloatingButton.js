@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { getDeviceType, deviceTypes } from "../../utils/deviceCheck";
 
-const RoundFloatingButton = ({ handleClick, icon, hoverText }) => {
+const RoundFloatingButton = ({ handleClick, icon, hoverText, heartBeat }) => {
   const [buttonText, setButtonText] = useState("");
   const isSmallScreen = getDeviceType() <= deviceTypes.TABLET;
+  const ButtonComponent = heartBeat ? RoundButtonWithHeartBeat : RoundButton
   return (
-    <RoundButton
+    <ButtonComponent
       onClick={handleClick}
       onMouseEnter={() => {
         if (!isSmallScreen) {
@@ -21,7 +22,7 @@ const RoundFloatingButton = ({ handleClick, icon, hoverText }) => {
     >
       {icon}
       {buttonText}
-    </RoundButton>
+    </ButtonComponent>
   );
 };
 
@@ -57,3 +58,26 @@ const RoundButton = styled.button`
     }
   }
 `;
+
+
+const heartBeat = keyframes`
+20%,
+60%,
+80% {
+  transform: scale(1.2);
+}
+0%,
+40%,
+100% {
+  transform: scale(1);
+}
+`;
+
+export const RoundButtonWithHeartBeat = styled(RoundButton) `
+  animation-duration: 0.7s;
+  animation-name: ${heartBeat}, ${heartBeat}, ${heartBeat};
+  animation-delay: 1s, 10s, 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1, 1, 1;
+`;
+
