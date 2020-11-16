@@ -5,7 +5,7 @@ import { getDeviceType, deviceTypes } from "../../utils/deviceCheck";
 const RoundFloatingButton = ({ handleClick, icon, hoverText, heartBeat }) => {
   const [buttonText, setButtonText] = useState("");
   const isSmallScreen = getDeviceType() <= deviceTypes.TABLET;
-  const ButtonComponent = heartBeat ? RoundButtonWithHeartBeat : RoundButton
+  const ButtonComponent = heartBeat ? RoundButtonWithHeartBeat : RoundButton;
   return (
     <ButtonComponent
       onClick={handleClick}
@@ -76,7 +76,7 @@ const heartBeat = keyframes`
 export const RoundButtonWithHeartBeat = styled(RoundButton) `
   animation-duration: 0.7s;
   animation-name: ${heartBeat}, ${heartBeat}, ${heartBeat};
-  animation-delay: 1s, 10s, 30s;
+  animation-delay: 3s, 10s, 30s;
   animation-timing-function: linear;
   animation-iteration-count: 1, 1, 1;
 `;
